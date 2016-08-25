@@ -17,16 +17,19 @@ public class Player extends Character {
 		this.race = race;
 	}
 	
+	@Override
 	public int calcHitChance() {
 		return this.hitChance + weapon.getBonusHitChance();
 	}
 	
+	@Override
 	public int calcDamage() {
 		int damage = ThreadLocalRandom.current()
 				.nextInt(weapon.getMinDamage(), weapon.getMaxDamage() + 1);
 		return damage;
 	}
 	
+	@Override
 	public String toString() {
 		String description = "";
 		
@@ -50,9 +53,9 @@ public class Player extends Character {
             break;
 		}
 		
-		return String.format("-=-= Name: {0} =-=-\nLife: {1} of {2}\nHit Chance: {3}\tBlock: {6}\nWeapon:\n{4}\nDescription: {5}",
-                this.name, this.life, this.maxLife, this.hitChance, this.weapon,
-                description, this.block);
+		return String.format("-=-= Name: %s =-=-\nLife: %d of %d\nHit Chance: %d\tBlock: %d\nWeapon:\n%s\nDescription: %s",
+                this.name, this.life, this.maxLife, this.hitChance, this.block,
+                this.getWeapon().getName(), description);
 	}
 	
 	public Weapon getWeapon() {
