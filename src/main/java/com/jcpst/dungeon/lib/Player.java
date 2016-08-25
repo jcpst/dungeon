@@ -53,7 +53,7 @@ public class Player extends Character {
             break;
 		}
 		
-		return String.format("-=-= Name: %s =-=-\nLife: %d of %d\nHit Chance: %d\tBlock: %d\nWeapon:\n%s\nDescription: %s",
+		return String.format("-=-= Name: %s =-=-\nLife: %d of %d\nHit Chance: %d\nBlock: %d\nWeapon: %s\nDescription: %s",
                 this.name, this.life, this.maxLife, this.hitChance, this.block,
                 this.getWeapon().getName(), description);
 	}
