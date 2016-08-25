@@ -6,6 +6,7 @@ public class Monster extends Character {
     private String description;
 
     public Monster() {
+        this("goon", 5, 5, 20, 20, "lil goon", 1, 3);
     }
 
     public Monster(String name, int life, int maxLife, int hitChance, int block, String description, int minDamage,
