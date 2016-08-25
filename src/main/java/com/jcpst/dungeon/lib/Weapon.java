@@ -8,6 +8,7 @@ public class Weapon {
 	private int maxDamage;
 	
 	public Weapon() {}
+	
 	public Weapon(int bonusHitChance, boolean slow, String name,
 			int minDamage, int maxDamage) {
 		this.maxDamage = maxDamage;
@@ -17,6 +18,7 @@ public class Weapon {
 		this.minDamage = minDamage;
 	}
 	
+	@Override
 	public String toString() {
 		return String.format("%s\t%d to %d Damage\nBonus Hit: %d\tIs slow? %s",
 				this.name, this.minDamage, this.maxDamage,

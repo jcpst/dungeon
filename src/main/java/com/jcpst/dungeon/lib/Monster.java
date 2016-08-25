@@ -6,6 +6,7 @@ public class Monster extends Character {
 	private String description;
 	
 	public Monster() {}
+	
 	public Monster(String name, int life, int maxLife, int hitChance,
 			int block, String description, int minDamage, int maxDamage) {
 		this.maxLife = maxLife;
@@ -18,6 +19,7 @@ public class Monster extends Character {
 		this.minDamage = minDamage;
 	}
 	
+	@Override
 	public String toString() {
 		return String.format("******** MONSTER ********\nName: %s\nLife: %d of %d\nDamage: %d to %d\nHit Chance: %d\nBlock: %d\nDescription:\n%s\n",
 				this.name, this.life, this.maxLife, this.minDamage,
