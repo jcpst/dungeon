@@ -21,7 +21,7 @@ public class Monster extends Character {
 	
 	@Override
 	public String toString() {
-		return String.format("******** MONSTER ********\nName: %s\nLife: %d of %d\nDamage: %d to %d\nHit Chance: %d\nBlock: %d\nDescription:\n%s\n",
+		return String.format("-=-= Name: %s =-=-\nLife: %d of %d\nDamage: %d to %d\nHit Chance: %d\nBlock: %d\nDescription:\n%s\n",
 				this.name, this.life, this.maxLife, this.minDamage,
 				this.maxDamage, this.hitChance, this.block, this.description);
 	}
