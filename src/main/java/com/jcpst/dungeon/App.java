@@ -1,7 +1,7 @@
 package com.jcpst.dungeon;
 
-import java.io.IOException;
 import java.util.Random;
+import java.util.Scanner;
 import com.jcpst.dungeon.lib.*;
 import com.jcpst.dungeon.monsters.*;
 
@@ -19,61 +19,82 @@ public class App {
 	}
 	
 	private static Monster GetMonster() {
-		Gremlin gremlin = new Gremlin();
-		Gremlin bigGremlin = new Gremlin("BIG Gremlin", 50, 50, 30, 50, "Big n Tuff", 5, 10, 3);
-		Monster[] monsters = { gremlin, bigGremlin };
+		Monster[] monsters = {
+				new Gremlin(),
+				new Gremlin("BIG Gremlin", 50, 50, 30, 50, "Big n Tuff", 5, 10, 3)
+				};
 		Random rand = new Random();
 		int index = rand.nextInt(monsters.length);
 		Monster monster = monsters[index];
 		return monster;
 	}
-
-    public static void main(String[] args) {
-        System.out.println("Welcome to the Dungeon of Doom!");
-		boolean exit = false;
+	
+	private static Player GetPlayer() {
 		Weapon weapon = new Weapon(10, true, "Light Saber", 2, 8);
 		Player player = new Player("Dread Pirate Roberts", 40, 40, weapon, 70, 5, Race.Borg);
+		return player;
+	}
+
+    public static void main(String[] args) {
+		boolean exit = false;
+		
+		Player player = GetPlayer();
+		
+		System.out.print("\033[H\033[2J");  
+	    System.out.flush(); 
+        System.out.print("\033]0;DUNGEON OF DOOM\007");
+	    System.out.println("Welcome to the Dungeon of Doom!");
+        System.out.println("===============================");
+        
 		
 		do {
-			System.out.print(GetRoom());
-
 			Monster monster = GetMonster();
 			
-			System.out.printf("In this room: %s", monster.getName());
+			System.out.println();
+			System.out.println(GetRoom());
+			System.out.println();
+			System.out.printf("In this room: %s\n", monster.getName());
 			
 			boolean repeatMenu = true;
-			
-			do {
-				System.out.println("\nPlease choose an action: \nA) Attack\nR) Run away\nC) Character Info\nM) Monster Info\nX) Exit\nEnter your choice:");
-				
-				char userChoice = 0;
-				
-				try {
-					userChoice = (char) System.in.read();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
 
-				switch (java.lang.Character.toUpperCase(userChoice)) {
-				case 'A':
+			do {
+				System.out.println();
+				System.out.println("Please choose an action:");
+				System.out.println("------------------------");
+				System.out.println("A) Attack");
+				System.out.println("R) Run away");
+				System.out.println("C) Character Info");
+				System.out.println("M) Monster Info");
+				System.out.println("X) Exit");
+				System.out.println("Enter your choice:");
+
+				Scanner scanner = new Scanner(System.in);
+				String userChoice = scanner.next();
+
+				System.out.print("\033[H\033[2J");  
+			    System.out.flush(); 
+				
+				switch (userChoice.toUpperCase()) {
+				case "A":
 					Combat.doBattleRound(player, monster);
 					if (monster.getLife() <= 0) {
-						System.out.printf("You defeated %s", monster.getName());
+						System.out.printf("You defeated %s!", monster.getName());
+						System.out.println();
 						repeatMenu = false;
 					}
 					break;
-				case 'R':
+				case "R":
 					System.out.println("Run away!!!");
 					Combat.doAttack(monster, player);
 					repeatMenu = false;
 					break;
-				case 'C':
+				case "C":
 					System.out.println(player);
 					break;
-				case 'M':
+				case "M":
 					System.out.println(monster);
 					break;
-				case 'X':
+				case "X":
 					System.out.println("Thanks for playing, but no one likes a quitter");
 					exit = true;
 					break;
