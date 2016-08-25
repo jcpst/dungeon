@@ -1,65 +1,65 @@
 package com.jcpst.dungeon.lib;
 
 public class Character {
-	protected int life;
-	protected String name;
-	protected int maxLife;
-	protected int hitChance;
-	protected int block;
-	
-	public int getLife() {
-		return life;
-	}
+    protected int life;
+    protected String name;
+    protected int maxLife;
+    protected int hitChance;
+    protected int block;
 
-	public void setLife(int value) {
-		if (value <= maxLife) {
-			this.life = value;
-		} else {
-			this.life = maxLife;
-		}
-	}
+    public int getLife() {
+        return life;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setLife(int value) {
+        if (value <= maxLife) {
+            this.life = value;
+        } else {
+            this.life = maxLife;
+        }
+    }
 
-	public void setName(String value) {
-		this.name = value;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public int getMaxLife() {
-		return maxLife;
-	}
+    public void setName(String value) {
+        this.name = value;
+    }
 
-	public void setMaxLife(int value) {
-		this.maxLife = value;
-	}
+    public int getMaxLife() {
+        return maxLife;
+    }
 
-	public int getHitChance() {
-		return hitChance;
-	}
+    public void setMaxLife(int value) {
+        this.maxLife = value;
+    }
 
-	public void setHitChance(int value) {
-		this.hitChance = value;
-	}
+    public int getHitChance() {
+        return hitChance;
+    }
 
-	public int getBlock() {
-		return block;
-	}
+    public void setHitChance(int value) {
+        this.hitChance = value;
+    }
 
-	public void setBlock(int value) {
-		this.block = value;
-	}
+    public int getBlock() {
+        return block;
+    }
 
-	public int calcBlock() {
-		return block;
-	}
-	
-	public int calcHitChance() {
-		return hitChance;
-	}
+    public void setBlock(int value) {
+        this.block = value;
+    }
 
-	public int calcDamage() {
-		return 0;
-	}
+    public int calcBlock() {
+        return block;
+    }
+
+    public int calcHitChance() {
+        return hitChance;
+    }
+
+    public int calcDamage() {
+        return 0;
+    }
 }
