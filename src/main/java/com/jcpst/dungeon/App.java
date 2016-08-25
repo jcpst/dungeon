@@ -17,7 +17,11 @@ public class App {
     }
 
     private static Monster GetMonster() {
-        Monster[] monsters = { new Gremlin(), new Gremlin("BIG Gremlin", 50, 50, 30, 50, "Big n Tuff", 5, 10, 3) };
+        Monster g1 = new Gremlin();
+        Monster g2 = new Gremlin("BIG Gremlin", 50, 50, 30, 50, "Big n Tuff", 5, 10, 3);
+        Monster b1 = new Bunny();
+        Monster b2 = new Bunny("White Rabbit", 80, 80, 70, 70, "Look at the fangs!", 10, 20, true);
+        Monster[] monsters = { g1, g2, b1, b2 };
         Random rand = new Random();
         int index = rand.nextInt(monsters.length);
         Monster monster = monsters[index];
