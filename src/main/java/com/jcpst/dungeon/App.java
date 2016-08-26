@@ -30,7 +30,7 @@ public class App {
 
     private static Player GetPlayer() {
         Weapon weapon = new Weapon(10, true, "Light Saber", 2, 8);
-        Player player = new Player("Dread Pirate Roberts", 40, 40, weapon, 70, 5, Race.Borg);
+        Player player = new Player("Captain America", 40, 40, weapon, 70, 5, Race.Human);
         return player;
     }
 

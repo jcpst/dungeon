@@ -22,8 +22,9 @@ public class Combat {
         int diceRoll = rand.nextInt(101);
 
         if (diceRoll < (attacker.calcHitChance() - defender.calcBlock())) {
+            int life = defender.getLife();
             int damage = attacker.calcDamage();
-            defender.life -= damage;
+            defender.setLife(life - damage);
             System.out.printf("%s hit %s for %d damage!", attacker.getName(), defender.getName(), damage);
             System.out.println();
         } else {

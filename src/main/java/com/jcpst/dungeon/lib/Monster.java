@@ -1,5 +1,8 @@
 package com.jcpst.dungeon.lib;
 
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
+
 public class Monster extends Character {
     private int minDamage;
     private int maxDamage;
@@ -19,6 +22,12 @@ public class Monster extends Character {
         this.block = block;
         this.description = description;
         this.minDamage = minDamage;
+    }
+    
+    @Override
+    public int calcDamage() {
+        int damage = ThreadLocalRandom.current().nextInt(minDamage, maxDamage + 1);
+        return damage;
     }
 
     @Override
